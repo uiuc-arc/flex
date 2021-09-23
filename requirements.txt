@@ -6,6 +6,5 @@ numpy
 statsmodels
 hyperopt
 tabulate
-shutil
 pandas
 diff-match-patch

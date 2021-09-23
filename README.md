@@ -6,7 +6,12 @@ FLEX uses Extreme Value Theory to determine appropriate bounds for assertions in
 
 ## Installing 
 
-We recommend using a conda environment to install and use flex. 
+### Conda setup
+We recommend using a conda environment to install and use flex.
+Run `conda install -c conda-forge r-base r-eva` to installed the required R packages
+
+### Python Setup
+Use Python (3.6-3.8) version due to issues in [astunparse library](https://github.com/simonpercivall/astunparse/issues/62)  
 To install the requirements, do `pip install -r requirements.txt`.
 
 To install individual projects which contain flaky tests, use the `scripts/general_setup.sh` script. See the details in next section.
@@ -22,7 +27,7 @@ All slugs and project commits used in the paper can be found in `newbugs.csv`. `
 Step 3: Run `python boundschecker.py -r [repo_name] -test [test_name] -file [filename]  -line [line number] -conda [conda env name] -bc (enables boxcox transformation)` in the `tool/` directory to run FLEX for the project.
 
 E.g., for coax:
-`python boundschecker.py -r coax -test test_update -file coax-dev/coax/experience_replay/_prioritized_test.py  -line 137 -conda coax -deps "numpy" -bc`
+`python boundschecker.py -r coax -test test_update -file coax/coax/experience_replay/_prioritized_test.py  -line 137 -conda coax -deps "numpy" -bc`
 This will produce output like...
 ```
 Bound: 0.000794638226562553
@@ -77,3 +82,4 @@ If you use our tool, please cite us using:
   organization={FSE}
 }
 ```
+
